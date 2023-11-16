@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Felicidades por logearte</ion-title>
+    <!-- Botón para volver al login -->
+    <ion-buttons slot="start">
+      <ion-button (click)="goToLogin()">
+        <ion-icon name="log-in-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <!-- Tarjeta con la imagen y el botón de ir al perfil -->
+  <ion-card>
+    <img src="../../../assets/image/maxus.jfif" alt="Imagen" style="max-width: 900px; max-height: 500px;">
+    <ion-button (click)="goToProfile()" expand="full" color="primary">Ir al Perfil</ion-button>
+  </ion-card>
+  
+  <!-- Otro contenido de la página... -->
+</ion-content>

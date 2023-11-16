@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Perfil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Foto de perfil -->
+  <ion-item>
+    <img [src]="profileImage" *ngIf="profileImage" style="max-width: 100px; max-height: 100px;">
+  </ion-item>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Nombre Completo</ion-label>
+      <ion-input [(ngModel)]="nombreCompleto" disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Región</ion-label>
+      <ion-select [(ngModel)]="selectedRegion" disabled>
+        <ion-select-option *ngFor="let region of regions" [value]="region.id">
+          {{ region.nombre }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Comuna</ion-label>
+      <ion-select [(ngModel)]="selectedCommune" disabled>
+        <ion-select-option *ngFor="let commune of communes" [value]="commune.id">
+          {{ commune.nombre }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <!-- Datos escaneados del código QR -->
+  <ion-list>
+    <ion-list-header>
+      Datos del Código QR Escaneado
+    </ion-list-header>
+    <ion-item *ngFor="let barcode of barcodes">
+      <ion-label position="stacked">Formato</ion-label>
+      <ion-input type="text" [value]="barcode.format" disabled></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <!-- Datos de geolocalización -->
+  <ion-list>
+    <ion-list-header>
+      Datos de Geolocalización
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="stacked">Latitud</ion-label>
+      <ion-input [(ngModel)]="latitude" disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Longitud</ion-label>
+      <ion-input [(ngModel)]="longitude" disabled></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="full" (click)="getPermissionAndGeolocation()">Obtener Geolocalización</ion-button>
+  <ion-button expand="full" (click)="takePhoto()">Tomar Foto</ion-button>
+  <ion-button expand="full" (click)="scan()">Escanear Código QR</ion-button>
+  <ion-button expand="full" (click)="goBack()">Volver</ion-button>
+</ion-content>

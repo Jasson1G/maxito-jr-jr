@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <button (click)="goBack()" color="primary">
+        <ion-icon name="arrow-back-outline" size="large"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title>Ingresa tus datos</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nombre Completo</ion-label>
+        <ion-input [(ngModel)]="nombreCompleto" name="nombreCompleto" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Nombre de Usuario</ion-label>
+        <ion-input [(ngModel)]="username" name="username" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Región</ion-label>
+        <ion-select [(ngModel)]="selectedRegion" (ionChange)="loadCommunesByRegion()">
+          <ion-select-option *ngFor="let region of regions" [value]="region.id">{{ region.nombre }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Comuna</ion-label>
+        <ion-select [(ngModel)]="selectedCommune">
+          <ion-select-option *ngFor="let commune of communes" [value]="commune.id">{{ commune.nombre }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="full" (click)="register()" color="primary">Registrarse</ion-button>
+</ion-content>

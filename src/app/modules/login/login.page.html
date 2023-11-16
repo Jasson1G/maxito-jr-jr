@@ -1,0 +1,25 @@
+<ion-content>
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title>Iniciar Sesión</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input [(ngModel)]="username" name="username" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input [(ngModel)]="password" name="password" type="password" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="full" (click)="login()">Iniciar Sesión</ion-button>
+
+      <ion-button class="register-button" (click)="goToRegister()">Registrarse</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="full" (click)="openRecoverPasswordModal()">Recuperar Contraseña</ion-button>
+
+</ion-content>
