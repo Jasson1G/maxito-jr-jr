@@ -10,10 +10,10 @@ export class LoadingPage implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    // Agregar un temporizador de 10 segundos
+    // Agregar un temporizador de 5 segundos
     setTimeout(() => {
       // Redirigir a la página "login"
       this.router.navigateByUrl('/login');
-    }, 10000); // 10000 milisegundos = 10 segundos
+    }, 5000); // 5000 milisegundos = 5 segundos
   }
 }
